@@ -1,0 +1,16 @@
+{
+  "name": "mob402-lab4",
+  "version": "0.0.0",
+  "description": "Lab4 MOB402",
+  "private": true,
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.2"
+  }
+}
