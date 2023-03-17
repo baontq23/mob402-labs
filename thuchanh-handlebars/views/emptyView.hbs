@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Number 1</label>
+      <input type="number" class="form-control" id="a" step="0.1" required />
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Number 2</label>
+      <input type="number" class="form-control" id="b" step="0.1" required />
+    </div>
+
+    <div class="col-md-4">
+      <label for="operator" class="form-label">Operator</label>
+      <select class="form-select" id="operator" required>
+        <option selected>Choose...</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="%2F">/</option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <button onclick="submit()" class="btn btn-primary">Submit</button>
+      <p id="result-text">Result</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function submit() { var number1 = document.getElementById('a').value; var
+  number2 = document.getElementById('b').value; var operator =
+  document.getElementById('operator').value; if (Number(number2) === 0 &&
+  operator === '%2F') { alert('Number b != 0'); return; }
+  fetch(`http://localhost:8000/result/${number1}/${number2}/${operator}`, {
+  method: 'POST', }).then(res => res.text()).then(res => { var result =
+  document.getElementById('result-text'); result.innerText = res }); }
+
+</script>
